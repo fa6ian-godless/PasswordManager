@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0"
+            prefWidth="400.0"
+            style="-fx-background-color: gray; -fx-background-radius: 50;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.passwordmanager.ui.MainController">
+
+    <HBox alignment="CENTER_LEFT" spacing="10" />
+
+    <TableView fx:id="passwordTable" layoutY="100.0" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="usingColumn" prefWidth="150" text="Using" />
+            <TableColumn fx:id="loginColumn" prefWidth="150" text="Login" />
+            <TableColumn fx:id="passwordColumn" prefWidth="150" text="Password" />
+        </columns>
+    </TableView>
+     <Label layoutX="171.0" layoutY="36.0" style="-fx-font-size: 18px;" text="Passwords list" />
+     <Button layoutX="43.0" layoutY="530.0" onAction="#handleAddPassword" prefHeight="36.0" prefWidth="128.0" text="Add password" />
+     <Button layoutX="281.0" layoutY="529.0" onAction="#handleSettings" prefHeight="38.0" prefWidth="128.0" text="Settings" />
+
+</AnchorPane>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0"
+            prefWidth="400.0"
+            style="-fx-background-color: gray; -fx-background-radius: 50;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.passwordmanager.ui.LoginController">
+   <children>
+      <TextField fx:id="usernameField" layoutX="58.0" layoutY="226.0" prefHeight="49.0" prefWidth="284.0" promptText="Username" />
+      <PasswordField fx:id="passwordField" layoutX="58.0" layoutY="300.0" prefHeight="49.0" prefWidth="284.0" promptText="Password" />
+      <HBox alignment="CENTER" layoutX="100.0" layoutY="382.0" prefHeight="100.0" prefWidth="200.0" spacing="10">
+         <children>
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" prefHeight="50.0" prefWidth="100.0" text="Login" />
+            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegister" prefHeight="50.0" prefWidth="100.0" text="Register" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
