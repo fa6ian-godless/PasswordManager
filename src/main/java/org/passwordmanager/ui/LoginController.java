@@ -1,6 +1,5 @@
 package org.passwordmanager.ui;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -39,7 +38,7 @@ public class LoginController {
     }
 
     @FXML
-    private void handleLogin(ActionEvent event) {
+    private void handleLogin() {
         try {
             String storedUser = new String(Files.readAllBytes(Paths.get(userFile))).trim();
             String storedHash = new String(Files.readAllBytes(Paths.get(masterFile))).trim();
@@ -52,14 +51,10 @@ public class LoginController {
                 return;
             }
 
-            if (!storedUser.equals(inputUser)) {
-                showAlert("The username doesn't match");
-            }
-
-            if (storedHash.equals(inputHash)) {
-                openMainWindow();
+            if (!storedUser.equals(inputUser) || !storedHash.equals(inputHash)) {
+                showAlert("Invalid username or password ");
             } else {
-                showAlert("Invalid password");
+                openMainWindow();
             }
         } catch (IOException ioException) {
             showAlert("Couldn't read the master file");
@@ -67,23 +62,18 @@ public class LoginController {
     }
 
     @FXML
-    private void handleRegister(ActionEvent event) {
+    private void handleRegister() {
         try {
             String username = usernameField.getText().trim();
             String password = passwordField.getText();
 
-            if (username.isEmpty()) {
-                showAlert("Enter the user's name");
+            if (username.isEmpty() || password.isEmpty()) {
+                showAlert("Enter the username and password");
                 return;
             }
 
             if (username.contains(" ")) {
                 showAlert("The user name must not contain spaces.");
-                return;
-            }
-
-            if (password.isEmpty()) {
-                showAlert("Enter the password for registration");
                 return;
             }
 
