@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="300.0"
+            prefWidth="400.0"
+            style="-fx-background-color: gray; -fx-background-radius: 50; -fx-background-insets: 0, 0 1 1 0;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.passwordmanager.ui.AddDataController">
+
+    <HBox alignment="CENTER_LEFT" spacing="10" translateX="50.0" translateY="50.0">
+        <Label prefWidth="80" text="Сайт:" />
+        <TextField fx:id="siteField" promptText="Например: example.com" HBox.hgrow="ALWAYS" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="10" translateX="50.0" translateY="100.0">
+        <Label prefWidth="80" text="Логин:" />
+        <TextField fx:id="loginField" HBox.hgrow="ALWAYS" />
+        <Button onAction="#handleGenerateLogin" prefHeight="26.0" prefWidth="19.0" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="10" translateX="50.0" translateY="150.0">
+        <Label prefWidth="80" text="Пароль:" />
+        <PasswordField fx:id="passwordField" HBox.hgrow="ALWAYS" />
+        <Button onAction="#handleGeneratePassword" text="Генерировать" />
+    </HBox>
+
+    <HBox alignment="CENTER" spacing="10" translateX="200.0" translateY="200.0">
+        <Button onAction="#handleAdd" text="Добавить" />
+        <Button onAction="#handleCancel" text="Отмена" />
+    </HBox>
 
 </AnchorPane>

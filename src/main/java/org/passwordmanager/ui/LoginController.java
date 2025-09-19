@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import org.passwordmanager.util.SecurityUtil;
@@ -96,7 +97,8 @@ public class LoginController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/main.fxml"));
             Stage stage = (Stage) usernameField.getScene().getWindow();
 
-            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.setScene(new Scene(fxmlLoader.load(), Color.TRANSPARENT));
+            stage.centerOnScreen();
             stage.show();
         } catch (IOException ioException) {
             showAlert("Couldn't open the main window");

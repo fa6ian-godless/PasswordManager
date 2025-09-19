@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="600.0"
             prefWidth="400.0"
-            style="-fx-background-color: gray; -fx-background-radius: 50;"
+            style="-fx-background-color: gray; -fx-background-radius: 50; -fx-background-insets: 0, 0 1 1 0;"
             xmlns="http://javafx.com/javafx/17.0.12"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="org.passwordmanager.ui.MainController">
@@ -20,7 +20,7 @@
         </columns>
     </TableView>
      <Label layoutX="171.0" layoutY="36.0" style="-fx-font-size: 18px;" text="Passwords list" />
-     <Button layoutX="43.0" layoutY="530.0" onAction="#handleAddPassword" prefHeight="36.0" prefWidth="128.0" text="Add password" />
+     <Button layoutX="43.0" layoutY="530.0" fx:id="addButton" onAction="#handleAddPassword" prefHeight="36.0" prefWidth="128.0" text="Add password" />
      <Button layoutX="281.0" layoutY="529.0" onAction="#handleSettings" prefHeight="38.0" prefWidth="128.0" text="Settings" />
 
 </AnchorPane>
