@@ -2,15 +2,35 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: gray; -fx-background-radius: 50; -fx-background-insets: 0, 0 1 1 0;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.passwordmanager.ui.LoginController">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 50; -fx-background-insets: 0, 0 1 1 0;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.passwordmanager.ui.LoginController">
    <children>
-      <TextField fx:id="usernameField" layoutX="58.0" layoutY="226.0" prefHeight="49.0" prefWidth="284.0" promptText="Username" />
-      <PasswordField fx:id="passwordField" layoutX="58.0" layoutY="300.0" prefHeight="49.0" prefWidth="284.0" promptText="Password" />
-      <HBox alignment="CENTER" layoutX="100.0" layoutY="382.0" prefHeight="100.0" prefWidth="200.0" spacing="10">
+      <Pane prefHeight="48.0" prefWidth="400.0" style="-fx-background-color: #8D8D8D; -fx-background-radius: 50 50 0 0;">
          <children>
-            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" prefHeight="50.0" prefWidth="100.0" text="Login" />
-            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegister" prefHeight="50.0" prefWidth="100.0" text="Register" />
+            <Text fill="#404040" layoutX="138.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Manager" textAlignment="CENTER" translateX="-10.0" translateY="1.0">
+               <font>
+                  <Font name="Inter Regular" size="16.0" />
+               </font></Text>
+         </children></Pane>
+      <TextField fx:id="usernameField" layoutX="58.0" layoutY="200.0" prefHeight="49.0" prefWidth="284.0" promptText="Login" style="-fx-text-fill: #404040; -fx-prompt-text-fill: #404040; -fx-background-color: #8C8C8C; -fx-background-radius: 50;">
+         <font>
+            <Font name="Inter Regular" size="16.0" />
+         </font></TextField>
+      <PasswordField fx:id="passwordField" layoutX="58.0" layoutY="300.0" prefHeight="49.0" prefWidth="284.0" promptText="Password" style="-fx-background-color: #8C8C8C; -fx-background-radius: 50; -fx-text-fill: #404040; -fx-prompt-text-fill: #404040;">
+         <font>
+            <Font size="16.0" />
+         </font></PasswordField>
+      <HBox alignment="CENTER" layoutX="100.0" layoutY="400.0" prefHeight="100.0" prefWidth="200.0" spacing="10">
+         <children>
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #8C8C8C; -fx-background-radius: 50;" text="Entry" textFill="#404040">
+               <font>
+                  <Font name="Inter Regular" size="16.0" />
+               </font></Button>
+            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegister" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #8D8D8D; -fx-background-radius: 50;" text="Register" textFill="#404040">
+               <font>
+                  <Font name="Inter Regular" size="16.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>
