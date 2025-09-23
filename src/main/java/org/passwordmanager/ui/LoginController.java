@@ -1,5 +1,6 @@
 package org.passwordmanager.ui;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -23,9 +25,13 @@ public class LoginController {
     @FXML private PasswordField passwordField;
     @FXML private Button loginButton;
     @FXML private Button registerButton;
+    @FXML private Pane topBar;
 
     private final String masterFile = "master.dat";
     private final String userFile = "user.dat";
+
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     @FXML
     private void initialize() {
@@ -36,6 +42,21 @@ public class LoginController {
             loginButton.setDisable(true);
             registerButton.setDisable(false);
         }
+
+        Platform.runLater(() -> {
+            Stage stage = (Stage) topBar.getScene().getWindow();
+            Scene scene = topBar.getScene();
+
+            scene.setOnMousePressed(mouseEvent -> {
+                xOffset = mouseEvent.getScreenX() - stage.getX();
+                yOffset = mouseEvent.getScreenY() - stage.getY();
+            });
+
+            scene.setOnMouseDragged(mouseEvent -> {
+                stage.setX(mouseEvent.getScreenX() - xOffset);
+                stage.setY(mouseEvent.getScreenY() - yOffset);
+            });
+        });
     }
 
     @FXML
@@ -110,6 +131,4 @@ public class LoginController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-
 }

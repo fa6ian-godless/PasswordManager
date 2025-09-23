@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 50; -fx-background-insets: 0, 0 1 1 0;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.passwordmanager.ui.LoginController">
    <children>
-      <Pane prefHeight="48.0" prefWidth="400.0" style="-fx-background-color: #8D8D8D; -fx-background-radius: 50 50 0 0;">
+      <Pane fx:id="topBar" prefHeight="48.0" prefWidth="400.0" style="-fx-background-color: #8D8D8D; -fx-background-radius: 50 50 0 0;">
          <children>
             <Text fill="#404040" layoutX="138.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Manager" textAlignment="CENTER" translateX="-10.0" translateY="1.0">
                <font>
