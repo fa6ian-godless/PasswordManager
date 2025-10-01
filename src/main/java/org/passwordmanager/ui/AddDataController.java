@@ -10,7 +10,7 @@ import java.security.SecureRandom;
 
 public class AddDataController {
 
-    @FXML private TextField siteField;
+    @FXML private TextField usingField;
     @FXML private TextField loginField;
     @FXML private PasswordField passwordField;
 
@@ -30,7 +30,7 @@ public class AddDataController {
 
     @FXML
     private void handleAdd() {
-        String site = siteField.getText().trim();
+        String site = usingField.getText().trim();
         String login = loginField.getText().trim();
         String password = passwordField.getText().trim();
 
@@ -42,13 +42,8 @@ public class AddDataController {
         closeWindow();
     }
 
-    @FXML
-    private void handleCancel() {
-        closeWindow();
-    }
-
     private void closeWindow() {
-        Stage stage = (Stage) siteField.getScene().getWindow();
+        Stage stage = (Stage) usingField.getScene().getWindow();
         stage.close();
     }
 

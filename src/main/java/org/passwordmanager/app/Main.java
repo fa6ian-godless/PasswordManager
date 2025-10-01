@@ -16,6 +16,7 @@ public class Main extends Application {
 
         stage.setScene(new Scene(fxmlLoader.load(), Color.TRANSPARENT));
         stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setTitle("Password manager");
         stage.centerOnScreen();
         stage.show();
 
