@@ -7,9 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -97,23 +95,13 @@ public class MainController {
     }
 
     public void addPasswordCard(String using, String login, String password) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("passwordCard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/passwordCard.fxml"));
 
-        // System.out.print("\nDEBUG : \n" + "Using : " + using + "\n" + "Login : " + login + "\n" + "Password : " + password + "\n");
+        AnchorPane card = fxmlLoader.load();
 
-        HBox card = fxmlLoader.load();
+        CardController controller = fxmlLoader.getController();
+        controller.setData(using, login, password);
 
-        Label usingLabel = (Label) card.lookup("#usingLabel");
-
-        Button showBtn = new Button("\uD83D\uDC41");
-        showBtn.setOnAction(event -> {
-            System.out.println("Login : " + login);
-            System.out.println("Password : " + password);
-        });
-
-        card.getChildren().addAll(usingLabel, showBtn);
         passwordList.getChildren().add(card);
-
-        //System.out.print("DEBUG : Count elements in list : " + passwordList.getChildren().size() + "\n");
     }
 }
