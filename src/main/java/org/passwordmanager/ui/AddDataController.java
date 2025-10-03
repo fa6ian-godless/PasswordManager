@@ -1,15 +1,13 @@
 package org.passwordmanager.ui;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.security.SecureRandom;
 
 public class AddDataController {
@@ -39,13 +37,13 @@ public class AddDataController {
     }
 
     @FXML
-    private void handleAdd() {
+    private void handleAdd() throws IOException {
         String using = usingField.getText().trim();
         String login = loginField.getText().trim();
         String password = passwordField.getText().trim();
 
         if (!(using.isEmpty() || login.isEmpty() || password.isEmpty())) {
-            mainController.addPasswordEntry(using, login, password);
+            mainController.addPasswordCard(using, login, password);
         } else {
             showAlert();
             return;

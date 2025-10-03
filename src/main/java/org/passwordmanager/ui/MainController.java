@@ -19,6 +19,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+import java.io.IOException;
+
 public class MainController {
 
     @FXML private Pane topBar;
@@ -48,7 +50,7 @@ public class MainController {
     @FXML
     private void handleAddPassword(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/add_data.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/addData.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), Color.TRANSPARENT);
 
             AddDataController controller = fxmlLoader.getController();
@@ -94,14 +96,14 @@ public class MainController {
 
     }
 
-    public void addPasswordEntry(String using, String login, String password) {
-        System.out.print("\nDEBUG : \n" + "Using : " + using + "\n" + "Login : " + login + "\n" + "Password : " + password + "\n");
+    public void addPasswordCard(String using, String login, String password) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("passwordCard.fxml"));
 
-        HBox entry = new HBox(10);
-        entry.setStyle("-fx-background-color: #ddd; -fx-padding: 10; -fx-background-radius: 15;");
+        // System.out.print("\nDEBUG : \n" + "Using : " + using + "\n" + "Login : " + login + "\n" + "Password : " + password + "\n");
 
-        Label usingLabel = new Label(using);
-        usingLabel.setStyle("-fx-font-size: 14px;");
+        HBox card = fxmlLoader.load();
+
+        Label usingLabel = (Label) card.lookup("#usingLabel");
 
         Button showBtn = new Button("\uD83D\uDC41");
         showBtn.setOnAction(event -> {
@@ -109,9 +111,9 @@ public class MainController {
             System.out.println("Password : " + password);
         });
 
-        entry.getChildren().addAll(usingLabel, showBtn);
-        passwordList.getChildren().add(entry);
+        card.getChildren().addAll(usingLabel, showBtn);
+        passwordList.getChildren().add(card);
 
-        System.out.print("DEBUG : Count elements in list : " + passwordList.getChildren().size() + "\n");
+        //System.out.print("DEBUG : Count elements in list : " + passwordList.getChildren().size() + "\n");
     }
 }
