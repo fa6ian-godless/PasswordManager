@@ -1,9 +1,13 @@
 package org.passwordmanager.ui;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.security.SecureRandom;
@@ -18,33 +22,36 @@ public class AddDataController {
 
     private final SecureRandom random = new SecureRandom();
 
+    private MainController mainController;
+
+    public void setMainController(MainController controller) {
+        this.mainController = controller;
+    }
+
     @FXML
-    private void handleGenerateLogin() {
+    private void handleGenerateLogin(MouseEvent event) {
         loginField.setText(generateRandomString(8));
     }
 
     @FXML
-    private void handleGeneratePassword() {
+    private void handleGeneratePassword(MouseEvent event) {
         passwordField.setText(generateRandomString(16));
     }
 
     @FXML
     private void handleAdd() {
-        String site = usingField.getText().trim();
+        String using = usingField.getText().trim();
         String login = loginField.getText().trim();
         String password = passwordField.getText().trim();
 
-        if (site.isEmpty() || login.isEmpty() || password.isEmpty()) {
+        if (!(using.isEmpty() || login.isEmpty() || password.isEmpty())) {
+            mainController.addPasswordEntry(using, login, password);
+        } else {
             showAlert();
             return;
         }
 
-        closeWindow();
-    }
-
-    private void closeWindow() {
-        Stage stage = (Stage) usingField.getScene().getWindow();
-        stage.close();
+        ((Stage) usingField.getScene().getWindow()).close();
     }
 
     private void showAlert() {

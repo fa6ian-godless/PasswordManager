@@ -12,15 +12,16 @@
             </font>
         </Text>
     </Pane>
-    <ScrollPane fx:id="scrollPane" fitToWidth="true" layoutX="100.0" layoutY="100.0" opacity="0.0" prefHeight="270.0" prefWidth="263.0" style="-fx-background-color: transparent;">
-            <VBox fx:id="passwordList" style="-fx-background-color: transparent;" />
+    <ScrollPane fitToWidth="true" layoutX="100.0" layoutY="100.0" prefHeight="270.0" prefWidth="263.0"
+                style="-fx-background-color: transparent; -fx-background: transparent; -fx-control-inner-background: transparent;">
+        <VBox fx:id="passwordList" style="-fx-background-color: transparent;"/>
     </ScrollPane>
-    <Button fx:id="addButton" layoutX="50.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleAddPassword" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #8C8C8C; -fx-background-radius: 50;" text="Add" textFill="#404040">
+    <Button layoutX="50.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleAddPassword" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #8C8C8C; -fx-background-radius: 50;" text="Add" textFill="#404040">
          <font>
              <Font name="Inter Regular" size="16.0" />
          </font>
     </Button>
-    <Button fx:id="settingsButton" layoutX="250.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleSettings" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #8D8D8D; -fx-background-radius: 50;" text="Settings" textFill="#404040">
+    <Button layoutX="250.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleSettings" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #8D8D8D; -fx-background-radius: 50;" text="Settings" textFill="#404040">
          <font>
              <Font name="Inter Regular" size="16.0" />
          </font>
